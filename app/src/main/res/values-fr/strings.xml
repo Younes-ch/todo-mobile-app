@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Se connecter</string>
+    <string name="username_hint">Nom d\'utilisateur</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="sign_up_message">"Vous n'avez pas de compte ? "</string>
+    <string name="sign_up_link">S\'inscrire</string>
+</resources>
