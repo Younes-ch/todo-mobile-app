@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -18,8 +19,14 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.signupLink.setOnClickListener(v -> onSignupLinkClicked());
         binding.loginButton.setOnClickListener(v -> onLoginButtonClicked());
 
+    }
+
+    private void onSignupLinkClicked() {
+        Intent intent = new Intent(this, SignupActivity.class);
+        startActivity(intent);
     }
 
     private void onLoginButtonClicked() {

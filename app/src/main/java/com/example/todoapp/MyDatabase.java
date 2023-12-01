@@ -15,7 +15,6 @@ public class MyDatabase extends SQLiteOpenHelper
         super(context, DATABASE_NAME, null, 1);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db)
     {
