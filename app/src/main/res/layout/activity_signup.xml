@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
-
+    tools:context=".SignupActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -38,7 +37,7 @@
         />
 
     <EditText
-        android:id="@+id/password_input"
+        android:id="@+id/password1_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -56,46 +55,64 @@
         android:autofillHints="password"
         />
 
+    <EditText
+        android:id="@+id/password2_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/password1_input"
+        android:hint="@string/confirm_password_hint"
+        android:inputType="textPassword"
+        android:fontFamily="@font/architects_daughter"
+        android:background="@drawable/edittext_bg"
+        android:textSize="20sp"
+        android:textColorHint="@color/light_white"
+        android:textColor="@color/white"
+        android:autofillHints="password"
+        />
+
     <TextView
-        android:id="@+id/signup_message"
+        android:id="@+id/login_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password_input"
+        android:layout_below="@+id/password2_input"
         android:layout_marginStart="80dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/architects_daughter"
-        android:text="@string/sign_up_message"
+        android:text="@string/login_message"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/signup_link"
+        android:id="@+id/login_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password_input"
+        android:layout_below="@+id/password2_input"
         android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/signup_message"
+        android:layout_toEndOf="@+id/login_message"
         android:fontFamily="@font/architects_daughter"
-        android:text="@string/sign_up_link"
+        android:text="@string/login_link"
         android:textColor="@color/light_blue"
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/login_button"
-        android:layout_width="300dp"
+        android:id="@+id/signup_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signup_message"
+        android:layout_below="@+id/login_message"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:paddingHorizontal="100dp"
+        app:cornerRadius="10dp"
         android:backgroundTint="@color/dark_blue"
         android:fontFamily="@font/architects_daughter"
-        android:paddingHorizontal="100dp"
-        android:text="@string/login"
+        android:text="@string/signup"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:cornerRadius="10dp"
         app:strokeColor="@color/light_white"
         app:strokeWidth="2dp" />
-
 
 </RelativeLayout>

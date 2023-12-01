@@ -5,4 +5,8 @@
     <string name="password_hint">Password</string>
     <string name="sign_up_message">"Don\'t have an account ? "</string>
     <string name="sign_up_link">Sign up</string>
+    <string name="login_message">"Already have an account ? "</string>
+    <string name="login_link">Login</string>
+    <string name="signup">Sign up</string>
+    <string name="confirm_password_hint">Confirm Password</string>
 </resources>
