@@ -6,17 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.todoapp.databinding.ActivityMainBinding;
+import com.example.todoapp.databinding.ActivityLoginBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    ActivityLoginBinding binding;
     MyDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.signupLink.setOnClickListener(v -> onSignupLinkClicked());
