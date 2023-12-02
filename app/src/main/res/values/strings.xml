@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">TODO App</string>
     <string name="login">Login</string>
-    <string name="username_hint">Username</string>
+    <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="sign_up_message">"Don\'t have an account ? "</string>
     <string name="sign_up_link">Sign up</string>
