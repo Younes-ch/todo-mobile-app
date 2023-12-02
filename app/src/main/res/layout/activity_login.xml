@@ -21,15 +21,15 @@
 
 
     <EditText
-        android:id="@+id/username_input"
+        android:id="@+id/email_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:autofillHints="username"
+        android:autofillHints="emailAddress"
         android:background="@drawable/edittext_bg"
         android:fontFamily="@font/architects_daughter"
-        android:hint="@string/username_hint"
-        android:inputType="textPersonName"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         android:textColor="@color/white"
@@ -44,7 +44,7 @@
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         android:layout_marginTop="8dp"
-        android:layout_below="@+id/username_input"
+        android:layout_below="@+id/email_input"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:fontFamily="@font/architects_daughter"

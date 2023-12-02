@@ -30,22 +30,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onLoginButtonClicked() {
-        String username = binding.usernameInput.getText().toString();
-        String password = binding.passwordInput.getText().toString();
-        if(username.isEmpty() || password.isEmpty())
+        String email = binding.emailInput.getText().toString().trim();
+        String password = binding.passwordInput.getText().toString().trim();
+        if(email.isEmpty() || password.isEmpty())
         {
             Toast.makeText(this, "⛔ Please enter all the fields", Toast.LENGTH_SHORT).show();
             return;
         }
         db = new MyDatabase(this);
-        boolean result = db.checkUsername(username);
+        boolean result = db.checkEmailExists(email);
         if(result)
         {
-            result = db.checkUsernamePassword(username, password);
+            result = db.checkEmailAndPasswordCorrect(email, password);
 
             if(result)
             {
                 Toast.makeText(this, "✅ Login Successful", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, HomeActivity.class);
+                startActivity(intent);
+                finish();
             }
             else
             {
@@ -54,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this, "❌ Invalid Username", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "❌ Invalid Email", Toast.LENGTH_SHORT).show();
         }
     }
 }

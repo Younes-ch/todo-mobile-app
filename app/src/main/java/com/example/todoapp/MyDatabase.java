@@ -18,7 +18,7 @@ public class MyDatabase extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
+        db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT)");
         db.execSQL("CREATE TABLE tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, status TEXT, user_id INTEGER, FOREIGN KEY(user_id) REFERENCES users(id))");
     }
 
@@ -30,10 +30,10 @@ public class MyDatabase extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public boolean checkUsername(String username)
+    public boolean checkEmailExists(String email)
     {
         SQLiteDatabase rDB = this.getReadableDatabase();
-        Cursor cursor = rDB.rawQuery("SELECT * FROM users WHERE username = ?", new String[]{username});
+        Cursor cursor = rDB.rawQuery("SELECT * FROM users WHERE email = ?", new String[]{email});
         if(cursor.getCount() > 0)
         {
             return true;
@@ -44,10 +44,10 @@ public class MyDatabase extends SQLiteOpenHelper
         }
     }
 
-    public boolean checkUsernamePassword(String username, String password)
+    public boolean checkEmailAndPasswordCorrect(String email, String password)
     {
         SQLiteDatabase rDB = this.getReadableDatabase();
-        Cursor cursor = rDB.rawQuery("SELECT * FROM users WHERE username = ? AND password = ?", new String[]{username, password});
+        Cursor cursor = rDB.rawQuery("SELECT * FROM users WHERE email = ? AND password = ?", new String[]{email, password});
         if(cursor.getCount() > 0)
         {
             return true;
@@ -58,11 +58,11 @@ public class MyDatabase extends SQLiteOpenHelper
         }
     }
 
-    public boolean insertUser(String username, String password)
+    public boolean insertUser(String email, String password)
     {
         SQLiteDatabase wDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
+        contentValues.put("email", email);
         contentValues.put("password", password);
         long result = wDB.insert("users", null, contentValues);
         if(result == -1)

@@ -28,10 +28,10 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void onSignupButtonClicked() {
-        String username = binding.usernameInput.getText().toString();
+        String email = binding.emailInput.getText().toString();
         String password = binding.password1Input.getText().toString();
         String confirmPassword = binding.password2Input.getText().toString();
-        if(username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
+        if(email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
         {
             Toast.makeText(this, "⛔ Please enter all the fields", Toast.LENGTH_SHORT).show();
             return;
@@ -42,14 +42,14 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
         db = new MyDatabase(this);
-        boolean result = db.checkUsername(username);
+        boolean result = db.checkEmailExists(email);
         if(result)
         {
-            Toast.makeText(this, "❌ Username already exists", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "❌ Email already exists", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            result = db.insertUser(username, password);
+            result = db.insertUser(email, password);
             if(result)
             {
                 Toast.makeText(this, "✅ Signup Successful", Toast.LENGTH_SHORT).show();
