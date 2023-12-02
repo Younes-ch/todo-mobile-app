@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password2_input"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/architects_daughter"
         android:text="@string/login_message"
@@ -100,7 +100,7 @@
 
     <Button
         android:id="@+id/signup_button"
-        android:layout_width="wrap_content"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_message"
         android:layout_centerHorizontal="true"

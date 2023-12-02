@@ -25,17 +25,16 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:autofillHints="username"
         android:background="@drawable/edittext_bg"
         android:fontFamily="@font/architects_daughter"
         android:hint="@string/username_hint"
         android:inputType="textPersonName"
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
-        android:textSize="20sp"
-        android:textColorHint="@color/light_white"
         android:textColor="@color/white"
-        android:autofillHints="username"
-        />
+        android:textColorHint="@color/light_white"
+        android:textSize="21sp" />
 
     <EditText
         android:id="@+id/password_input"
@@ -50,7 +49,7 @@
         android:inputType="textPassword"
         android:fontFamily="@font/architects_daughter"
         android:background="@drawable/edittext_bg"
-        android:textSize="20sp"
+        android:textSize="21sp"
         android:textColorHint="@color/light_white"
         android:textColor="@color/white"
         android:autofillHints="password"
@@ -61,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_input"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/architects_daughter"
         android:text="@string/sign_up_message"
@@ -82,7 +81,7 @@
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="300dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signup_message"
         android:layout_centerHorizontal="true"
