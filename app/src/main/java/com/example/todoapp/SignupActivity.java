@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.todoapp.Utils.MyDatabase;
 import com.example.todoapp.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {

@@ -1,11 +1,17 @@
 package com.example.todoapp;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.todoapp.Utils.MyDatabase;
 import com.example.todoapp.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,8 +51,10 @@ public class LoginActivity extends AppCompatActivity {
 
             if(result)
             {
+                int user_id = db.getUserId(email);
                 Toast.makeText(this, "✅ Login Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, HomeActivity.class);
+                intent.putExtra("user_id", user_id);
                 startActivity(intent);
                 finish();
             }
