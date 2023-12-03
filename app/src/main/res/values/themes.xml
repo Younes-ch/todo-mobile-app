@@ -11,12 +11,22 @@
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="android:itemBackground">@color/dark_blue</item>
-        <item name="android:colorBackground">@color/dark_blue</item>
+        <item name="android:colorBackground">@color/status_bar_color</item>
         <item name="colorSurface">@color/dark_blue</item>
         <item name="statusBarBackground">@color/status_bar_color</item>
 
     </style>
 
-    <style name="Theme.TODOApp" parent="Base.Theme.TODOApp" />
+    <style name="Theme.TODOApp" parent="Base.Theme.TODOApp"/>
+
+    <style name="CustomAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:background">@color/dark_blue</item>
+    </style>
+
+
+
 </resources>

@@ -11,8 +11,7 @@
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="android:itemBackground">@color/dark_blue</item>
-        <item name="android:colorBackground">@color/dark_blue</item>
+        <item name="android:colorBackground">@color/status_bar_color</item>
         <item name="colorSurface">@color/dark_blue</item>
         <item name="statusBarBackground">@color/status_bar_color</item>
 
