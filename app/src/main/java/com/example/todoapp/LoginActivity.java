@@ -1,10 +1,5 @@
 package com.example.todoapp;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -40,7 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         String password = binding.passwordInput.getText().toString().trim();
         if(email.isEmpty() || password.isEmpty())
         {
-            Toast.makeText(this, "⛔ Please enter all the fields", Toast.LENGTH_SHORT).show();
+            String toastMessage = "⛔ " + getResources().getString(R.string.empty_fields_message);
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
             return;
         }
         db = new MyDatabase(this);
@@ -52,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
             if(result)
             {
                 int user_id = db.getUserId(email);
-                Toast.makeText(this, "✅ Login Successful", Toast.LENGTH_SHORT).show();
+                String toastMessage = String.format("✅ %s", getResources().getString(R.string.login_successful_message), email);
+                Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, HomeActivity.class);
                 intent.putExtra("user_id", user_id);
                 startActivity(intent);
@@ -60,12 +57,14 @@ public class LoginActivity extends AppCompatActivity {
             }
             else
             {
-                Toast.makeText(this, "❌ Invalid Password", Toast.LENGTH_SHORT).show();
+                String toastMessage = String.format("❌ %s", getResources().getString(R.string.invalid_credential_password_message));
+                Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
             }
         }
         else
         {
-            Toast.makeText(this, "❌ Invalid Email", Toast.LENGTH_SHORT).show();
+            String toastMessage = String.format("❌ %s", getResources().getString(R.string.invalid_credential_email_message));
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
         }
     }
 }

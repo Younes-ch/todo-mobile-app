@@ -7,7 +7,16 @@
     <string name="sign_up_link">Sign up</string>
     <string name="login_message">"Already have an account ? "</string>
     <string name="login_link">Login</string>
+    <string name="invalid_credential_email_message">Invalid Email</string>
+    <string name="invalid_credential_password_message">Invalid Password</string>
+    <string name="login_successful_message">Logged in successfully</string>
     <string name="signup">Sign up</string>
+    <string name="empty_fields_message">Please enter all the fields</string>
+    <string name="invalid_email_message">Invalid email address</string>
+    <string name="email_already_exists_message">Email already exists</string>
+    <string name="passwords_do_not_match_message">Passwords do not match</string>
+    <string name="signup_successful_message">Signup Successful</string>
+    <string name="signup_failed_message">Sign up failed</string>
     <string name="confirm_password_hint">Confirm Password</string>
     <string name="add_task_hint">Add a new task</string>
     <string name="add_task_button_text">Add</string>
@@ -16,4 +25,8 @@
     <string name="confirm_logout_message">Are you sure you want to logout ?</string>
     <string name="positive_choice">Yes</string>
     <string name="negative_choice">No</string>
+    <string name="confirm_logout_action">Logged out</string>
+    <string name="delete_task_dialog_title">Delete Task</string>
+    <string name="confirm_delete_task_message">Are you sure you want to delete this task ?</string>
+    <string name="confirm_task_deletion">Task deleted</string>
 </resources>

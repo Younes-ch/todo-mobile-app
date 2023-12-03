@@ -7,7 +7,16 @@
     <string name="sign_up_link">S\'inscrire</string>
     <string name="login_message">"Vous avez déjà un compte ? "</string>
     <string name="login_link">connecter</string>
+    <string name="invalid_credential_email_message">Email invalide</string>
+    <string name="invalid_credential_password_message">Mot de passe invalide</string>
+    <string name="login_successful_message">Connecté avec succès</string>
     <string name="signup">S\'inscrire</string>
+    <string name="empty_fields_message">Veuillez remplir tous les champs</string>
+    <string name="invalid_email_message">Adresse e-mail invalide</string>
+    <string name="email_already_exists_message">L\'adresse e-mail existe déjà</string>
+    <string name="passwords_do_not_match_message">Les mots de passe ne correspondent pas</string>
+    <string name="signup_successful_message">Inscription réussie</string>
+    <string name="signup_failed_message">Échec de l\'inscription</string>
     <string name="confirm_password_hint">Confirmer le mot de passe</string>
     <string name="add_task_hint">Ajouter une nouvelle tâche</string>
     <string name="add_task_button_text">Ajouter</string>
@@ -15,4 +24,9 @@
     <string name="confirm_logout_message">Êtes-vous sûr de vouloir vous déconnecter ?</string>
     <string name="positive_choice">Oui</string>
     <string name="negative_choice">Non</string>
+    <string name="confirm_logout_action">Déconnecté</string>
+    <string name="delete_task_dialog_title">Supprimer une tâche</string>
+    <string name="confirm_delete_task_message">Êtes-vous sûr de vouloir supprimer cette tâche ?</string>
+    <string name="confirm_task_deletion">Tâche supprimée</string>
+
 </resources>

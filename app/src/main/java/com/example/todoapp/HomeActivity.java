@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
                 .setTitle(R.string.logout)
                 .setMessage(R.string.confirm_logout_message)
                 .setPositiveButton(R.string.positive_choice, (dialog, which) -> {
-                    Toast.makeText(this, "✅ Logged out", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "✅ " + getResources().getString(R.string.confirm_logout_action), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, LoginActivity.class);
                     startActivity(intent);
                     finish();

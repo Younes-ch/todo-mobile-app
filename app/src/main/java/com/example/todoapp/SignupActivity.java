@@ -34,38 +34,44 @@ public class SignupActivity extends AppCompatActivity {
         String confirmPassword = binding.password2Input.getText().toString().trim();
         if(email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
         {
-            Toast.makeText(this, "⛔ Please enter all the fields", Toast.LENGTH_SHORT).show();
+            String toastMessage = "⛔ " + getResources().getString(R.string.empty_fields_message);
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
             return;
         }
         if(!password.equals(confirmPassword))
         {
-            Toast.makeText(this, "⛔ Passwords do not match", Toast.LENGTH_SHORT).show();
+            String toastMessage = "⛔ " + getResources().getString(R.string.passwords_do_not_match_message);
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
             return;
         }
         db = new MyDatabase(this);
         boolean result = db.checkEmailExists(email);
         if(result)
         {
-            Toast.makeText(this, "❌ Email already exists", Toast.LENGTH_SHORT).show();
+            String toastMessage = "⛔ " + getResources().getString(R.string.email_already_exists_message);
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
         }
         else
         {
             String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
             if(!email.matches(emailPattern))
             {
-                Toast.makeText(this, "⛔ Invalid Email", Toast.LENGTH_SHORT).show();
+                String toastMessage = "⛔ " + getResources().getString(R.string.invalid_email_message);
+                Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
                 return;
             }
 
             result = db.insertUser(email, password);
             if(result)
             {
-                Toast.makeText(this, "✅ Signup Successful", Toast.LENGTH_SHORT).show();
+                String toastMessage = "✅ " + getResources().getString(R.string.signup_successful_message);
+                Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
                 finish();
             }
             else
             {
-                Toast.makeText(this, "❌ Signup Failed", Toast.LENGTH_SHORT).show();
+                String toastMessage = "❌ " + getResources().getString(R.string.signup_failed_message);
+                Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
             }
         }
     }
