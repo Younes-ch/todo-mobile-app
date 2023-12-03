@@ -88,10 +88,11 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/dark_blue"
         android:fontFamily="@font/architects_daughter"
-        android:paddingHorizontal="100dp"
+        android:paddingHorizontal="80dp"
         android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:cornerRadius="10dp"
         app:strokeColor="@color/light_white"
         app:strokeWidth="2dp" />

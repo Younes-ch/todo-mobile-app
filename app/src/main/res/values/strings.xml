@@ -9,4 +9,7 @@
     <string name="login_link">Login</string>
     <string name="signup">Sign up</string>
     <string name="confirm_password_hint">Confirm Password</string>
+    <string name="add_task_hint">Add a new task</string>
+    <string name="add_task_button_text">Add</string>
+    <string name="logout">Logout</string>
 </resources>

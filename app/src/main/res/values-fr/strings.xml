@@ -9,4 +9,7 @@
     <string name="login_link">connecter</string>
     <string name="signup">S\'inscrire</string>
     <string name="confirm_password_hint">Confirmer le mot de passe</string>
+    <string name="add_task_hint">Ajouter une nouvelle tâche</string>
+    <string name="add_task_button_text">Ajouter</string>
+    <string name="logout">Déconnecter</string>
 </resources>

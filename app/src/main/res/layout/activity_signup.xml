@@ -105,7 +105,7 @@
         android:layout_below="@+id/login_message"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:paddingHorizontal="100dp"
+        android:paddingHorizontal="90dp"
         app:cornerRadius="10dp"
         android:backgroundTint="@color/dark_blue"
         android:fontFamily="@font/architects_daughter"

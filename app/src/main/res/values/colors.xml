@@ -5,5 +5,6 @@
     <color name="light_blue">#0074d9</color>
     <color name="light_gray">#99000000</color>
     <color name="light_white">#6DF6FEFF</color>
+    <color name="gray">#808080</color>
     <color name="status_bar_color">#010510</color>
 </resources>
