@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -102,6 +103,17 @@ public class AddNewTask extends BottomSheetDialogFragment
                 ToDoModel task = new ToDoModel(new Random().nextInt(100), text, 0,
                         userId);
                 db.insertTask(task);
+
+//                String email = db.getUserEmail(userId);
+//                String subject = "New Task Added";
+//                String message = "A new task has been added to your ToDo List:\n- " + text;
+//
+//                Intent intent = new Intent(Intent.ACTION_SEND);
+//                intent.setType("message/rfc822");
+//                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+//                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//                intent.putExtra(Intent.EXTRA_TEXT, message);
+//                startActivity(Intent.createChooser(intent, "Choose an email client"));
             }
             dismiss();
         });

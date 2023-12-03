@@ -98,6 +98,21 @@ public class MyDatabase extends SQLiteOpenHelper
         }
     }
 
+    public String getUserEmail(int user_id)
+    {
+        db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE id = ?", new String[]{String.valueOf(user_id)});
+        if(cursor.getCount() > 0)
+        {
+            cursor.moveToFirst();
+            return cursor.getString(1);
+        }
+        else
+        {
+            return "";
+        }
+    }
+
     // ***************************** TASKS *****************************
 
     public boolean insertTask(ToDoModel task)

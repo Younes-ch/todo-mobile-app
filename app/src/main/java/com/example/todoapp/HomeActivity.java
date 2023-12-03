@@ -3,6 +3,7 @@ package com.example.todoapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,14 +31,13 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
     private ToDoAdapter adapter;
     private MyDatabase db;
 
-    private ActivityHomeBinding binding;
     private int user_id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        ActivityHomeBinding binding = ActivityHomeBinding.inflate(getLayoutInflater());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         user_id = getIntent().getIntExtra("user_id", 0);
@@ -59,6 +59,9 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
         adapter.setTasks(todos_list);
 
         fab.setOnClickListener(v -> onAddTodoButtonClicked());
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerViewTouchHelper(adapter));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
     }
 

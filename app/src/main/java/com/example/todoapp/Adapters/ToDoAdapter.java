@@ -91,7 +91,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder
         notifyItemRemoved(position);
     }
 
-    public void editItem(int position) {
+    public void editTask(int position) {
         ToDoModel item = todos_list.get(position);
 
         Bundle bundle = new Bundle();
