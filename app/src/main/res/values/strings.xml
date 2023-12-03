@@ -12,4 +12,8 @@
     <string name="add_task_hint">Add a new task</string>
     <string name="add_task_button_text">Add</string>
     <string name="logout">Logout</string>
+    <string name="welcome_message" translatable="false">T-O-D-O!</string>
+    <string name="confirm_logout_message">Are you sure you want to logout ?</string>
+    <string name="positive_choice">Yes</string>
+    <string name="negative_choice">No</string>
 </resources>

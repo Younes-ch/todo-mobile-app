@@ -12,4 +12,7 @@
     <string name="add_task_hint">Ajouter une nouvelle tâche</string>
     <string name="add_task_button_text">Ajouter</string>
     <string name="logout">Déconnecter</string>
+    <string name="confirm_logout_message">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+    <string name="positive_choice">Oui</string>
+    <string name="negative_choice">Non</string>
 </resources>

@@ -64,7 +64,6 @@ public class AddNewTask extends BottomSheetDialogFragment
         newTaskText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -98,6 +97,7 @@ public class AddNewTask extends BottomSheetDialogFragment
             }
             else
             {
+
                 int userId = getActivity().getIntent().getIntExtra("user_id", 0);
                 ToDoModel task = new ToDoModel(new Random().nextInt(100), text, 0,
                         userId);

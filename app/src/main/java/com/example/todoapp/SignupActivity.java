@@ -29,9 +29,9 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void onSignupButtonClicked() {
-        String email = binding.emailInput.getText().toString();
-        String password = binding.password1Input.getText().toString();
-        String confirmPassword = binding.password2Input.getText().toString();
+        String email = binding.emailInput.getText().toString().trim();
+        String password = binding.password1Input.getText().toString().trim();
+        String confirmPassword = binding.password2Input.getText().toString().trim();
         if(email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
         {
             Toast.makeText(this, "⛔ Please enter all the fields", Toast.LENGTH_SHORT).show();
@@ -50,6 +50,13 @@ public class SignupActivity extends AppCompatActivity {
         }
         else
         {
+            String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+            if(!email.matches(emailPattern))
+            {
+                Toast.makeText(this, "⛔ Invalid Email", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             result = db.insertUser(email, password);
             if(result)
             {

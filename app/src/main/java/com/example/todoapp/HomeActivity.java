@@ -1,11 +1,18 @@
 package com.example.todoapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.todoapp.Adapters.ToDoAdapter;
 import com.example.todoapp.Models.ToDoModel;
@@ -14,34 +21,31 @@ import com.example.todoapp.databinding.ActivityHomeBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements OnDialogCloseListener {
 
-    private RecyclerView recyclerView;
-    private FloatingActionButton fab;
-    private ActivityHomeBinding binding;
-
     private List<ToDoModel> todos_list;
     private ToDoAdapter adapter;
     private MyDatabase db;
 
+    private ActivityHomeBinding binding;
     private int user_id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        Toolbar toolbar = binding.toolbar;
+        setSupportActionBar(toolbar);
         user_id = getIntent().getIntExtra("user_id", 0);
 
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        recyclerView = binding.todoRecyclerView;
-        fab = binding.addTodoButton;
+        RecyclerView recyclerView = binding.todoRecyclerView;
+        FloatingActionButton fab = binding.addTodoButton;
         db = new MyDatabase(HomeActivity.this);
         todos_list = new ArrayList<>();
         adapter = new ToDoAdapter(db, HomeActivity.this);
@@ -56,6 +60,37 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
 
         fab.setOnClickListener(v -> onAddTodoButtonClicked());
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.nav_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+            if(item.getItemId() == R.id.logout)
+            {
+                alertLogoutDialog();
+            }
+
+            return super.onOptionsItemSelected(item);
+    }
+
+    private void alertLogoutDialog() {
+        new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.CustomAlertDialogTheme))
+                .setTitle(R.string.logout)
+                .setMessage(R.string.confirm_logout_message)
+                .setPositiveButton(R.string.positive_choice, (dialog, which) -> {
+                    Toast.makeText(this, "✅ Logged out", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .setNegativeButton(R.string.negative_choice, null)
+                .show();
     }
 
     private void onAddTodoButtonClicked() {
