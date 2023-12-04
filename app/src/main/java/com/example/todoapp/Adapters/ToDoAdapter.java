@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.todoapp.AddNewTask;
+import com.example.todoapp.AddAndUpdateTask;
 import com.example.todoapp.HomeActivity;
 import com.example.todoapp.Models.ToDoModel;
 import com.example.todoapp.R;
@@ -100,8 +100,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder
         bundle.putInt("status", item.getStatus());
         bundle.putInt("user_id", item.getUser_id());
 
-
-        AddNewTask fragment = new AddNewTask();
+        String editTaskHint = homeActivity.getResources().getString(R.string.edit_task_hint);
+        String editButtonText = homeActivity.getResources().getString(R.string.edit_task_button_text);
+        AddAndUpdateTask fragment = new AddAndUpdateTask(editTaskHint, editButtonText);
         fragment.setArguments(bundle);
         fragment.show(homeActivity.getSupportFragmentManager(), fragment.getTag());
     }

@@ -51,9 +51,9 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
                     adapter.deleteTask(position);
                     Toast.makeText(adapter.getContext(), "✅ " + adapter.getContext().getResources().getString(R.string.confirm_task_deletion), Toast.LENGTH_SHORT).show();
                 })
-                .setNegativeButton(R.string.negative_choice, (dialog, which) -> {
-                    adapter.notifyItemChanged(position);
-                })
+                .setNegativeButton(R.string.negative_choice, (dialog, which) ->
+                    adapter.notifyItemChanged(position)
+                )
                 .show();
     }
 

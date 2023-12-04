@@ -2,7 +2,6 @@ package com.example.todoapp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,26 +11,29 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-
 import com.example.todoapp.Models.ToDoModel;
 import com.example.todoapp.Utils.MyDatabase;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import org.jetbrains.annotations.Contract;
-
 import java.util.Random;
 
-public class AddNewTask extends BottomSheetDialogFragment
+public class AddAndUpdateTask extends BottomSheetDialogFragment
 {
-    public static final String TAG = "AddNewTask";
+    public static final String TAG = "AddAndUpdateTask";
 
-    private EditText newTaskText;
-    private Button newTaskAddButton;
+    private final String editTextHint;
+    private final String buttonText;
+    private EditText editText;
+    private Button button;
 
     private MyDatabase db;
-    public static AddNewTask newInstance() {
-        return new AddNewTask();
+
+    public AddAndUpdateTask(String editTextHint, String buttonText) {
+        this.editTextHint = editTextHint;
+        this.buttonText = buttonText;
+    }
+    public static AddAndUpdateTask newInstance(String editTextHint, String buttonText) {
+        return new AddAndUpdateTask(editTextHint, buttonText);
     }
 
     @Override
@@ -43,8 +45,10 @@ public class AddNewTask extends BottomSheetDialogFragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        newTaskText = view.findViewById(R.id.taskEditText);
-        newTaskAddButton = view.findViewById(R.id.addTaskButton);
+        editText = view.findViewById(R.id.taskEditText);
+        editText.setHint(editTextHint);
+        button = view.findViewById(R.id.addTaskButton);
+        button.setText(buttonText);
 
         db = new MyDatabase(getActivity());
 
@@ -55,14 +59,14 @@ public class AddNewTask extends BottomSheetDialogFragment
         {
             isUpdate = true;
             String title = bundle.getString("title");
-            newTaskText.setText(title);
+            editText.setText(title);
             if (title.length() > 0)
             {
-                newTaskAddButton.setEnabled(false);
+                button.setEnabled(false);
             }
         }
 
-        newTaskText.addTextChangedListener(new TextWatcher() {
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -71,15 +75,15 @@ public class AddNewTask extends BottomSheetDialogFragment
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().equals(""))
                 {
-                    newTaskAddButton.setEnabled(false);
-                    newTaskAddButton.setBackgroundColor(getResources().getColor(R.color.gray));
-                    newTaskAddButton.setTextColor(getResources().getColor(R.color.white));
+                    button.setEnabled(false);
+                    button.setBackgroundColor(getResources().getColor(R.color.gray));
+                    button.setTextColor(getResources().getColor(R.color.white));
                 }
                 else
                 {
-                    newTaskAddButton.setEnabled(true);
-                    newTaskAddButton.setBackgroundColor(getResources().getColor(R.color.dark_blue));
-                    newTaskAddButton.setTextColor(getResources().getColor(R.color.white));
+                    button.setEnabled(true);
+                    button.setBackgroundColor(getResources().getColor(R.color.light_blue));
+                    button.setTextColor(getResources().getColor(R.color.white));
                 }
             }
 
@@ -90,15 +94,14 @@ public class AddNewTask extends BottomSheetDialogFragment
         });
 
         final boolean finalIsUpdate = isUpdate;
-        newTaskAddButton.setOnClickListener(v -> {
-            String text = newTaskText.getText().toString().trim();
+        button.setOnClickListener(v -> {
+            String text = editText.getText().toString().trim();
             if(finalIsUpdate)
             {
                 db.updateTaskTitle(bundle.getInt("id"), text);
             }
             else
             {
-
                 int userId = getActivity().getIntent().getIntExtra("user_id", 0);
                 ToDoModel task = new ToDoModel(new Random().nextInt(100), text, 0,
                         userId);

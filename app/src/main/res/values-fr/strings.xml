@@ -19,7 +19,9 @@
     <string name="signup_failed_message">Échec de l\'inscription</string>
     <string name="confirm_password_hint">Confirmer le mot de passe</string>
     <string name="add_task_hint">Ajouter une nouvelle tâche</string>
+    <string name="edit_task_hint">Modifier la tâche</string>
     <string name="add_task_button_text">Ajouter</string>
+    <string name="edit_task_button_text">Modifier</string>
     <string name="logout">Déconnecter</string>
     <string name="confirm_logout_message">Êtes-vous sûr de vouloir vous déconnecter ?</string>
     <string name="positive_choice">Oui</string>
