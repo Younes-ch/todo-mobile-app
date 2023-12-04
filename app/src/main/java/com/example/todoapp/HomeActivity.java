@@ -97,7 +97,9 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
     }
 
     private void onAddTodoButtonClicked() {
-        AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
+        String addTaskHint = getResources().getString(R.string.add_task_hint);
+        String buttonText = getResources().getString(R.string.add_task_button_text);
+        AddAndUpdateTask.newInstance(addTaskHint, buttonText).show(getSupportFragmentManager(), AddAndUpdateTask.TAG);
     }
 
     @Override

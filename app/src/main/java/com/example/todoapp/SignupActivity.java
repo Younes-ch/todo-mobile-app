@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -24,7 +25,10 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    private void onLoginLinkClicked() {
+    private void onLoginLinkClicked()
+    {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 
@@ -66,6 +70,10 @@ public class SignupActivity extends AppCompatActivity {
             {
                 String toastMessage = "✅ " + getResources().getString(R.string.signup_successful_message);
                 Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, HomeActivity.class);
+                int userId = db.getUserId(email);
+                intent.putExtra("user_id", userId);
+                startActivity(intent);
                 finish();
             }
             else
