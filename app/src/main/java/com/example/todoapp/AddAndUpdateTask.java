@@ -38,17 +38,18 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
 
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.add_new_task, container, false);
+        return inflater.inflate(R.layout.add_update_task, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        editText = view.findViewById(R.id.taskEditText);
+        editText = view.findViewById(R.id.bottomDialogEditText);
         editText.setHint(editTextHint);
-        button = view.findViewById(R.id.addTaskButton);
+        button = view.findViewById(R.id.bottomDialogButton);
         button.setText(buttonText);
+        button.setEnabled(false);
 
         db = new MyDatabase(getActivity());
 
@@ -60,11 +61,12 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
             isUpdate = true;
             String title = bundle.getString("title");
             editText.setText(title);
-            if (title.length() > 0)
+            if (title.length() >= 0)
             {
                 button.setEnabled(false);
             }
         }
+
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -77,13 +79,11 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
                 {
                     button.setEnabled(false);
                     button.setBackgroundColor(getResources().getColor(R.color.gray));
-                    button.setTextColor(getResources().getColor(R.color.white));
                 }
                 else
                 {
                     button.setEnabled(true);
                     button.setBackgroundColor(getResources().getColor(R.color.light_blue));
-                    button.setTextColor(getResources().getColor(R.color.white));
                 }
             }
 
