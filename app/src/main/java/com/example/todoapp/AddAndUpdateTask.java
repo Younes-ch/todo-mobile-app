@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.todoapp.Models.ToDoModel;
 import com.example.todoapp.Utils.Connectivity;
@@ -114,6 +115,8 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
                 } else {
                     Connectivity.showNoInternetMessage(getActivity());
                 }
+                String toastMessage = getResources().getString(R.string.task_updated_email_subject);
+                Toast.makeText(getActivity(), toastMessage, Toast.LENGTH_SHORT).show();
             }
             else
             {
@@ -131,6 +134,8 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
                 } else {
                     Connectivity.showNoInternetMessage(getActivity());
                 }
+                String toastMessage = "✅ " + getResources().getString(R.string.new_task_email_subject);
+                Toast.makeText(getActivity(), toastMessage, Toast.LENGTH_SHORT).show();
             }
             dismiss();
         });
