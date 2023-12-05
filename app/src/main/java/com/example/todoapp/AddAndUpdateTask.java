@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.todoapp.Models.ToDoModel;
+import com.example.todoapp.Utils.Connectivity;
+import com.example.todoapp.Utils.JavaMailAPI;
 import com.example.todoapp.Utils.MyDatabase;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -107,19 +110,23 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
                         userId);
                 db.insertTask(task);
 
-//                String email = db.getUserEmail(userId);
-//                String subject = "New Task Added";
-//                String message = "A new task has been added to your ToDo List:\n- " + text;
-//
-//                Intent intent = new Intent(Intent.ACTION_SEND);
-//                intent.setType("message/rfc822");
-//                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-//                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-//                intent.putExtra(Intent.EXTRA_TEXT, message);
-//                startActivity(Intent.createChooser(intent, "Choose an email client"));
+                if (Connectivity.isNetworkConnected(getActivity()))
+                {
+                    String email = db.getUserEmail(userId);
+                    String subject = "✅ " + getResources().getString(R.string.new_task_email_subject);
+                    String body = getResources().getString(R.string.new_task_email_body) + ": \n- " + text;
+                    sendMail(email, subject, body);
+                } else {
+                    Connectivity.showNoInternetMessage(getActivity());
+                }
             }
             dismiss();
         });
+    }
+
+    private void sendMail(String email, String subject, String body) {
+        JavaMailAPI javaMailAPI = new JavaMailAPI(getActivity(), email, subject, body);
+        javaMailAPI.execute();
     }
 
     @Override

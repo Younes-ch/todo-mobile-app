@@ -31,4 +31,10 @@
     <string name="delete_task_dialog_title">Delete Task</string>
     <string name="confirm_delete_task_message">Are you sure you want to delete this task ?</string>
     <string name="confirm_task_deletion">Task deleted</string>
+    <string name="no_internet_connection_message">No internet connection | Notification not sent</string>
+    <string name="new_task_email_subject">New task added</string>
+    <string name="new_task_email_body">A new task has been added to your TODO list</string>
+    <string name="sending_message_dialog">Sending message</string>
+    <string name="please_wait_dialog">Please wait</string>
+    <string name="email_sent_confirmation">Email sent</string>
 </resources>
