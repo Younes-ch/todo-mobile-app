@@ -15,6 +15,8 @@ import com.example.todoapp.AddAndUpdateTask;
 import com.example.todoapp.HomeActivity;
 import com.example.todoapp.Models.ToDoModel;
 import com.example.todoapp.R;
+import com.example.todoapp.Utils.Connectivity;
+import com.example.todoapp.Utils.JavaMailAPI;
 import com.example.todoapp.Utils.MyDatabase;
 
 import java.util.List;
@@ -87,6 +89,17 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder
     public void deleteTask(int position) {
         ToDoModel item = todos_list.get(position);
         db.deleteTask(item.getId());
+
+        String email = db.getUserEmail(item.getUser_id());
+        String subject = "⛔ " + homeActivity.getResources().getString(R.string.task_deleted_email_subject);
+        String body = homeActivity.getResources().getString(R.string.task_deleted_email_body) + ": \n- " + item.getTitle();
+        if (Connectivity.isNetworkConnected(homeActivity))
+        {
+            JavaMailAPI.sendMail(homeActivity, email, subject, body);
+        } else {
+            Connectivity.showNoInternetMessage(homeActivity);
+        }
+
         todos_list.remove(position);
         notifyItemRemoved(position);
     }

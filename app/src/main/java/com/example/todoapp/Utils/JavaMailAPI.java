@@ -84,4 +84,9 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
         }
         return null;
     }
+
+    public static void sendMail(Context context, String email, String subject, String body) {
+        JavaMailAPI javaMailAPI = new JavaMailAPI(context, email, subject, body);
+        javaMailAPI.execute();
+    }
 }

@@ -102,6 +102,18 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
             if(finalIsUpdate)
             {
                 db.updateTaskTitle(bundle.getInt("id"), text);
+
+                if (Connectivity.isNetworkConnected(getActivity()))
+                {
+                    int userId = getActivity().getIntent().getIntExtra("user_id", 0);
+                    String email = db.getUserEmail(userId);
+                    String subject = getResources().getString(R.string.task_updated_email_subject);
+                    String body = getResources().getString(R.string.task_updated_email_body) + ": \n- Before: "
+                            + bundle.getString("title") + "\n- After: " + text;
+                    JavaMailAPI.sendMail(getActivity(), email, subject, body);
+                } else {
+                    Connectivity.showNoInternetMessage(getActivity());
+                }
             }
             else
             {
@@ -115,18 +127,13 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
                     String email = db.getUserEmail(userId);
                     String subject = "✅ " + getResources().getString(R.string.new_task_email_subject);
                     String body = getResources().getString(R.string.new_task_email_body) + ": \n- " + text;
-                    sendMail(email, subject, body);
+                    JavaMailAPI.sendMail(getActivity(), email, subject, body);
                 } else {
                     Connectivity.showNoInternetMessage(getActivity());
                 }
             }
             dismiss();
         });
-    }
-
-    private void sendMail(String email, String subject, String body) {
-        JavaMailAPI javaMailAPI = new JavaMailAPI(getActivity(), email, subject, body);
-        javaMailAPI.execute();
     }
 
     @Override

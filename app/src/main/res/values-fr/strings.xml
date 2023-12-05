@@ -31,10 +31,14 @@
     <string name="confirm_delete_task_message">Êtes-vous sûr de vouloir supprimer cette tâche ?</string>
     <string name="confirm_task_deletion">Tâche supprimée</string>
     <string name="no_internet_connection_message">Pas de connexion Internet | Notification non envoyée</string>
-    <string name="new_task_email_subject">Nouvelle tâche ajoutée</string>
-    <string name="new_task_email_body">Une nouvelle tâche a été ajoutée à votre liste TODO</string>
     <string name="sending_message_dialog">Envoi du message</string>
     <string name="please_wait_dialog">Veuillez patienter</string>
     <string name="email_sent_confirmation">Email envoyé</string>
+    <string name="new_task_email_subject">Nouvelle tâche ajoutée</string>
+    <string name="new_task_email_body">Une nouvelle tâche a été ajoutée à votre liste TODO</string>
+    <string name="task_updated_email_subject">Tâche modifiée</string>
+    <string name="task_updated_email_body">Une tâche a été modifiée dans votre liste TODO</string>
+    <string name="task_deleted_email_subject">Tâche supprimée</string>
+    <string name="task_deleted_email_body">Une tâche a été supprimée de votre liste TODO</string>
 
 </resources>
