@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -85,6 +87,12 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
 
         ConfirmDialog confirmDialog = new ConfirmDialog(this, title, message);
         confirmDialog.setOnPositiveButtonClickListener(() -> {
+
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove("user_id");
+            editor.apply();
+
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();

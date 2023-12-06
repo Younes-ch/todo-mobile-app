@@ -70,9 +70,11 @@ public class SignupActivity extends AppCompatActivity {
             {
                 String toastMessage = "✅ " + getResources().getString(R.string.signup_successful_message);
                 Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, HomeActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 int userId = db.getUserId(email);
                 intent.putExtra("user_id", userId);
+                intent.putExtra("email", email);
+                intent.putExtra("password", password);
                 startActivity(intent);
                 finish();
             }
