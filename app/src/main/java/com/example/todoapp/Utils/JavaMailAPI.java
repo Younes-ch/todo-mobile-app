@@ -1,10 +1,12 @@
 package com.example.todoapp.Utils;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.todoapp.LoadingDialog;
 import com.example.todoapp.R;
 
 import java.util.Properties;
@@ -26,7 +28,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     private String subject;
     private String body;
 
-    private ProgressDialog progressDialog;
+    private LoadingDialog loadingDialog;
 
     public JavaMailAPI(Context context, String email, String subject, String body) {
         this.context = context;
@@ -38,17 +40,16 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        String dialogTitle = context.getResources().getString(R.string.sending_message_dialog);
-        String dialogMessage = context.getResources().getString(R.string.please_wait_dialog);
-        progressDialog = ProgressDialog.show(context,dialogTitle, dialogMessage,false,false);
+        loadingDialog = new LoadingDialog(context);
+        loadingDialog.startLoadingDialog();
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        progressDialog.dismiss();
+        loadingDialog.dismissDialog();
         String toastMessage = "✅ " + context.getResources().getString(R.string.email_sent_confirmation);
-        Toast.makeText(context,toastMessage,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, toastMessage,Toast.LENGTH_SHORT).show();
     }
 
     @Override
