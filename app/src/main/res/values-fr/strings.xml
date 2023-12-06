@@ -3,6 +3,7 @@
     <string name="login">connecter</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Mot de passe</string>
+    <string name="remember_me_message">Se souvenir de moi</string>
     <string name="sign_up_message">"Vous n'avez pas de compte ? "</string>
     <string name="sign_up_link">S\'inscrire</string>
     <string name="login_message">"Vous avez déjà un compte ? "</string>

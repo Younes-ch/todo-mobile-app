@@ -3,6 +3,7 @@
     <string name="login">Login</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
+    <string name="remember_me_message">Remember me</string>
     <string name="sign_up_message">"Don\'t have an account ? "</string>
     <string name="sign_up_link">Sign up</string>
     <string name="login_message">"Already have an account ? "</string>
