@@ -14,8 +14,15 @@
         <item name="android:colorBackground">@color/status_bar_color</item>
         <item name="colorSurface">@color/dark_blue</item>
         <item name="statusBarBackground">@color/status_bar_color</item>
+        <item name="android:windowAnimationStyle">@style/windowAnimation</item>
 
     </style>
 
     <style name="Theme.TODOApp" parent="Base.Theme.TODOApp" />
+
+    <style name="windowAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
 </resources>

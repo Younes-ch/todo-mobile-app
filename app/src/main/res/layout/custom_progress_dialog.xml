@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/custom_progress_dialog.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="@drawable/alert_dialog_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/customTitle"
+            android:text="@string/sending_email_dialog"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+
+        <ProgressBar
+            android:id="@+id/customProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/customTitle"
+            android:layout_marginTop="20dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white" />
+
+        <TextView
+            android:id="@+id/customMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customProgressBar"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="8dp"
+            android:text="@string/please_wait_dialog"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -4,6 +4,8 @@
     <color name="white">#f6feff</color>
     <color name="light_blue">#0074d9</color>
     <color name="light_gray">#99000000</color>
+    <color name="thumb_unchecked_color">#6c6c6c</color>
+    <color name="track_unchecked_color">#b9b9b9</color>
     <color name="light_white">#6DF6FEFF</color>
     <color name="gray">#808080</color>
     <color name="cozy_red">#D32F2F</color>

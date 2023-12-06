@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/dialogRelativeLayout"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/alert_dialog_background"
+        android:gravity="center"
+        android:paddingEnd="20dp">
+
+        <TextView
+            android:id="@+id/customTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/architects_daughter"/>
+
+        <TextView
+            android:id="@+id/customMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customTitle"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="Message"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="@font/architects_daughter"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/customPositiveButton"
+            android:layout_below="@id/customMessage"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/positive_choice"
+            android:textColor="@color/white"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:fontFamily="@font/architects_daughter"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/customNegativeButton"
+            android:layout_below="@id/customMessage"
+            android:layout_toStartOf="@+id/customPositiveButton"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/negative_choice"
+            android:textColor="@color/white"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:fontFamily="@font/architects_daughter"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
