@@ -1,6 +1,5 @@
 package com.example.todoapp;
 
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
@@ -44,17 +43,18 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     private void alertDeleteDialog(int position)
     {
-        new AlertDialog.Builder(new ContextThemeWrapper(adapter.getContext(), R.style.CustomAlertDialogTheme))
-                .setTitle(R.string.delete_task_dialog_title)
-                .setMessage(R.string.confirm_delete_task_message)
-                .setPositiveButton(R.string.positive_choice, (dialog, which) -> {
-                    adapter.deleteTask(position);
-                    Toast.makeText(adapter.getContext(), "✅ " + adapter.getContext().getResources().getString(R.string.confirm_task_deletion), Toast.LENGTH_SHORT).show();
-                })
-                .setNegativeButton(R.string.negative_choice, (dialog, which) ->
-                    adapter.notifyItemChanged(position)
-                )
-                .show();
+        String title = adapter.getContext().getResources().getString(R.string.delete_task_dialog_title);
+        String message = adapter.getContext().getResources().getString(R.string.confirm_delete_task_message);
+
+        String toastMessage = "✅ " + adapter.getContext().getResources().getString(R.string.confirm_task_deletion);
+        ConfirmDialog dialog = new ConfirmDialog(adapter.getContext(), title, message);
+        dialog.setOnPositiveButtonClickListener(() -> {
+            adapter.deleteTask(position);
+        });
+        dialog.setOnNegativeButtonClickListener(() -> {
+            adapter.notifyItemChanged(position);
+        });
+        dialog.startConfirmDialog(toastMessage);
     }
 
     @Override
