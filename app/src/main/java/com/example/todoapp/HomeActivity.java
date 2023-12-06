@@ -1,6 +1,5 @@
 package com.example.todoapp;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -10,10 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.todoapp.Adapters.ToDoAdapter;
 import com.example.todoapp.Models.ToDoModel;
@@ -83,17 +80,18 @@ public class HomeActivity extends AppCompatActivity implements OnDialogCloseList
     }
 
     private void alertLogoutDialog() {
-        new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.CustomAlertDialogTheme))
-                .setTitle(R.string.logout)
-                .setMessage(R.string.confirm_logout_message)
-                .setPositiveButton(R.string.positive_choice, (dialog, which) -> {
-                    Toast.makeText(this, "✅ " + getResources().getString(R.string.confirm_logout_action), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                })
-                .setNegativeButton(R.string.negative_choice, null)
-                .show();
+        String title = getResources().getString(R.string.logout);
+        String message = getResources().getString(R.string.confirm_logout_message);
+
+        ConfirmDialog confirmDialog = new ConfirmDialog(this, title, message);
+        confirmDialog.setOnPositiveButtonClickListener(() -> {
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+        confirmDialog.setOnNegativeButtonClickListener(null);
+        String toastMessage = "✅ " + getResources().getString(R.string.confirm_logout_action);
+        confirmDialog.startConfirmDialog(toastMessage);
     }
 
     private void onAddTodoButtonClicked() {
