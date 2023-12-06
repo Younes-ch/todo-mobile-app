@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.todoapp.Utils.MyDatabase;
@@ -16,8 +15,6 @@ import com.example.todoapp.databinding.ActivityLoginBinding;
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
-    private MyDatabase db;
-    private SwitchCompat rememberMeSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
             return;
         }
-        db = new MyDatabase(this);
+        MyDatabase db = new MyDatabase(this);
         boolean result = db.checkEmailExists(email);
         if(result)
         {
@@ -59,11 +56,11 @@ public class LoginActivity extends AppCompatActivity {
             if(result)
             {
                 int user_id = db.getUserId(email);
-                String toastMessage = String.format("✅ %s", getResources().getString(R.string.login_successful_message), email);
+                String toastMessage = String.format("✅ %s", getResources().getString(R.string.login_successful_message));
                 Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, HomeActivity.class);
 
-                rememberMeSwitch = binding.rememberMeSwitch;
+                SwitchCompat rememberMeSwitch = binding.rememberMeSwitch;
 
                 if (rememberMeSwitch.isChecked())
                 {

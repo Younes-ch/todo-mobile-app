@@ -2,10 +2,6 @@ package com.example.todoapp;
 
 import android.graphics.Canvas;
 import android.util.TypedValue;
-import android.view.ContextThemeWrapper;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +12,7 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private ToDoAdapter adapter;
+    private final ToDoAdapter adapter;
     public RecyclerViewTouchHelper(ToDoAdapter adapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         this.adapter = adapter;
@@ -48,12 +44,8 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
 
         String toastMessage = "✅ " + adapter.getContext().getResources().getString(R.string.confirm_task_deletion);
         ConfirmDialog dialog = new ConfirmDialog(adapter.getContext(), title, message);
-        dialog.setOnPositiveButtonClickListener(() -> {
-            adapter.deleteTask(position);
-        });
-        dialog.setOnNegativeButtonClickListener(() -> {
-            adapter.notifyItemChanged(position);
-        });
+        dialog.setOnPositiveButtonClickListener(() -> adapter.deleteTask(position));
+        dialog.setOnNegativeButtonClickListener(() -> adapter.notifyItemChanged(position));
         dialog.startConfirmDialog(toastMessage);
     }
 

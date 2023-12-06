@@ -1,7 +1,6 @@
 package com.example.todoapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,8 +19,6 @@ import com.example.todoapp.Utils.JavaMailAPI;
 import com.example.todoapp.Utils.MyDatabase;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class AddAndUpdateTask extends BottomSheetDialogFragment
@@ -144,7 +141,7 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
             }
             else
             {
-                ToDoModel task = new ToDoModel(new Random().nextInt(100), text, 0,
+                ToDoModel task = new ToDoModel(new Random().nextInt(1000), text, 0,
                         userId);
                 db.insertTask(task);
 

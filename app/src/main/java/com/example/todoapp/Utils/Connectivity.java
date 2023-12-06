@@ -15,9 +15,7 @@ public class Connectivity {
         if (connectivityManager != null) {
             NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
 
-            if (activeNetwork != null && activeNetwork.isConnectedOrConnecting()) {
-                return true;
-            }
+            return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
         }
 
         return false;

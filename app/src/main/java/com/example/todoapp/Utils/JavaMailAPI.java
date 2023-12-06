@@ -1,7 +1,5 @@
 package com.example.todoapp.Utils;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -21,12 +19,11 @@ import javax.mail.internet.MimeMessage;
 public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
 
-    private Context context;
-    private Session session;
+    private final Context context;
 
-    private String email;
-    private String subject;
-    private String body;
+    private final String email;
+    private final String subject;
+    private final String body;
 
     private LoadingDialog loadingDialog;
 
@@ -63,7 +60,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
 
-        session = Session.getDefaultInstance(props,
+        Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(EmailCredentials.EMAIL, EmailCredentials.PASSWORD);

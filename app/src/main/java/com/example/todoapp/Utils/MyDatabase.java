@@ -42,28 +42,15 @@ public class MyDatabase extends SQLiteOpenHelper
     {
         db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email = ?", new String[]{email});
-        if(cursor.getCount() > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return cursor.getCount() > 0;
     }
 
     public boolean checkEmailAndPasswordCorrect(String email, String password)
     {
         db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email = ? AND password = ?", new String[]{email, password});
-        if(cursor.getCount() > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM users WHERE email = ? AND password = ?", new String[]{email, password});
+        return cursor.getCount() > 0;
     }
 
     public boolean insertUser(String email, String password)
@@ -73,14 +60,7 @@ public class MyDatabase extends SQLiteOpenHelper
         contentValues.put("email", email);
         contentValues.put("password", password);
         long result = db.insert("users", null, contentValues);
-        if(result == -1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return result != -1;
     }
 
     public int getUserId(String email)
@@ -123,14 +103,7 @@ public class MyDatabase extends SQLiteOpenHelper
         contentValues.put("status", task.getStatus());
         contentValues.put("user_id", task.getUser_id());
         long result = db.insert("tasks", null, contentValues);
-        if(result == -1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return result != -1;
     }
 
     public List<ToDoModel> getAllTasks(int user_id)
@@ -172,14 +145,7 @@ public class MyDatabase extends SQLiteOpenHelper
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", title);
         long result = db.update("tasks", contentValues, "ID = ?", new String[]{String.valueOf(id)});
-        if(result == -1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return result != -1;
     }
 
     public boolean updateTaskStatus(int id, int status)
@@ -188,28 +154,14 @@ public class MyDatabase extends SQLiteOpenHelper
         ContentValues contentValues = new ContentValues();
         contentValues.put("status", status);
         long result = db.update("tasks", contentValues, "ID = ?", new String[]{String.valueOf(id)});
-        if(result == -1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return result != -1;
     }
 
     public boolean deleteTask(int id)
     {
         db = this.getWritableDatabase();
         long result = db.delete("tasks", "ID = ?", new String[]{String.valueOf(id)});
-        if(result == -1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return result != -1;
     }
 
 }
