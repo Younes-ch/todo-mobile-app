@@ -37,7 +37,7 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
         }
         else
         {
-            adapter.editTask(position);
+            adapter.editTask(position, adapter);
         }
     }
 

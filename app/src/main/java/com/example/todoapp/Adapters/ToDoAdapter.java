@@ -104,7 +104,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder
         notifyItemRemoved(position);
     }
 
-    public void editTask(int position) {
+    public void editTask(int position, ToDoAdapter adapter) {
         ToDoModel item = todos_list.get(position);
 
         Bundle bundle = new Bundle();
@@ -115,7 +115,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder
 
         String editTaskHint = homeActivity.getResources().getString(R.string.edit_task_hint);
         String editButtonText = homeActivity.getResources().getString(R.string.edit_task_button_text);
-        AddAndUpdateTask fragment = new AddAndUpdateTask(editTaskHint, editButtonText);
+        AddAndUpdateTask fragment = new AddAndUpdateTask(editTaskHint, editButtonText, adapter);
         fragment.setArguments(bundle);
         fragment.show(homeActivity.getSupportFragmentManager(), fragment.getTag());
     }
