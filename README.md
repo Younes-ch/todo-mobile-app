@@ -1,6 +1,7 @@
 # TODO App with Authentication and Local Storage
 
-This Android application provides a user-friendly platform for managing tasks while incorporating authentication and local storage mechanisms for enhanced security and data persistence.
+- This Android application provides a user-friendly platform for managing tasks while incorporating authentication and local storage mechanisms for enhanced security and data persistence.
+- The app have a `French` and an `English` version.
 
 ## Features
 
