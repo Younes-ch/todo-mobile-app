@@ -30,6 +30,8 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
     private EditText editText;
     private Button button;
 
+    private Button cancelButton;
+
     private Bundle bundle;
     private MyDatabase db;
     private ToDoAdapter adapter;
@@ -58,10 +60,19 @@ public class AddAndUpdateTask extends BottomSheetDialogFragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        setCancelable(false);
+
         editText = view.findViewById(R.id.bottomDialogEditText);
         editText.setHint(editTextHint);
         button = view.findViewById(R.id.bottomDialogButton);
         button.setText(buttonText);
+
+        cancelButton = view.findViewById(R.id.bottomDialogCancelButton);
+        cancelButton.setOnClickListener(v -> {
+            dismiss();
+        });
+
+
         button.setEnabled(false);
 
         db = new MyDatabase(getActivity());

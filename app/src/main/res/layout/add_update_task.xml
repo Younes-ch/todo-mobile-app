@@ -21,6 +21,24 @@
         />
 
     <Button
+        android:id="@+id/bottomDialogCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bottomDialogEditText"
+        android:layout_toStartOf="@id/bottomDialogButton"
+        android:layout_marginTop="7dp"
+        android:layout_marginHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:backgroundTint="@color/cozy_red"
+        android:fontFamily="@font/architects_daughter"
+        android:text="@string/cancel_button_text"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/light_white"
+        app:strokeWidth="2dp" />
+
+    <Button
         android:id="@+id/bottomDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

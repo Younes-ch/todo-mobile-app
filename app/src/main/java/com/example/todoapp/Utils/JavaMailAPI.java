@@ -4,13 +4,14 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.todoapp.EmailCredentials;
 import com.example.todoapp.LoadingDialog;
 import com.example.todoapp.R;
 
+import javax.mail.PasswordAuthentication;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;

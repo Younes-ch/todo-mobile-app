@@ -23,6 +23,7 @@
     <string name="edit_task_hint">Modifier la tâche</string>
     <string name="add_task_button_text">Ajouter</string>
     <string name="edit_task_button_text">Modifier</string>
+    <string name="cancel_button_text">Annuler</string>
     <string name="logout">Déconnecter</string>
     <string name="confirm_logout_message">Êtes-vous sûr de vouloir vous déconnecter ?</string>
     <string name="positive_choice">Oui</string>
