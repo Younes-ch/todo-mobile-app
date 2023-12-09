@@ -5,26 +5,26 @@
 
 ## Features
 
-* **User Authentication:**
-  * Users can register new accounts and securely log in to access their personalized task lists.
+- **User Authentication:**
+  - Users can register new accounts and securely log in to access their personalized task lists.
 
-* **Task Management:**
+- **Task Management:**
 
-  * Users can create, edit, and delete tasks effectively.
-  * Tasks are stored locally using the device's storage, ensuring data availability even without an internet connection.
+  - Users can create, edit, and delete tasks effectively.
+  - Tasks are stored locally using the device's storage, ensuring data availability even without an internet connection.
 
-* **Task Notifications:**
+- **Task Notifications:**
 
-  * Users receive email notifications upon task updates (addition, deletion, or modification).
+  - Users receive email notifications upon task updates (addition, deletion, or modification).
 
-* **Session Management:**
+- **Session Management:**
 
-  * Login sessions are saved for future sessions, eliminating the need for repeated logins.
+  - Login sessions are saved for future sessions, eliminating the need for repeated logins.
 
 ## Technologies Used
 
-* Java
-* Android Studio
+- Java
+- Android Studio
 
 ## Installation
 
@@ -51,7 +51,7 @@ Launch the app.
 
 ## Task Notifications
 
-* Upon adding, deleting, or modifying a task, you will receive an email notification.
+- Upon adding, deleting, or modifying a task, you will receive an email notification.
 
 ## Setup Email Notifications
 
@@ -68,7 +68,7 @@ To enable email notifications for task-related actions, you'll need to set up th
    }
    ```
 
-   * Replace "**<your_email@gmail.com>**" with the email address you want to use for sending notifications and "**your_app_password**</ins>" with the app-specific password generated for your email account.
+   - Replace "**<your_email@gmail.com>**" with the email address you want to use for sending notifications and "**your_app_password**</ins>" with the app-specific password generated for your email account.
 
 ## Session Management
 
@@ -77,4 +77,4 @@ To enable email notifications for task-related actions, you'll need to set up th
 
 ## Purpose of the Project
 
-* This project was developed as part of a university assignment to demonstrate proficiency in Android app development. It serves as a practical implementation of concepts learned during the course.
+- This project was developed as part of a university assignment to demonstrate proficiency in Android app development. It serves as a practical implementation of concepts learned during the course.
