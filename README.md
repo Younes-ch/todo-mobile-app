@@ -78,3 +78,7 @@ To enable email notifications for task-related actions, you'll need to set up th
 ## Purpose of the Project
 
 - This project was developed as part of a university assignment to demonstrate proficiency in Android app development. It serves as a practical implementation of concepts learned during the course.
+
+## Demo
+
+https://github.com/Younes-ch/todo-mobile-app/assets/56512077/98c6ced3-1675-4181-b1af-69d349edb712
